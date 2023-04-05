@@ -1,0 +1,1 @@
+"..\sourse\DAC_config.c" OPTIMIZE (8,SPEED) BROWSE INCDIR(..\sourse) DEBUG OBJECTEXTEND PRINT(.\Listings\DAC_config.lst) TABS (2) OBJECT(..\DAC_config.obj)

@@ -1,0 +1,1 @@
+"..\sourse\menu.c" OPTIMIZE (8,SPEED) BROWSE INCDIR(..\sourse) DEBUG OBJECTEXTEND PRINT(.\Listings\menu.lst) TABS (2) OBJECT(..\menu.obj)

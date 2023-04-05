@@ -1,0 +1,1 @@
+"..\sourse\HC138.c" OPTIMIZE (8,SPEED) BROWSE INCDIR(..\sourse) DEBUG OBJECTEXTEND PRINT(.\Listings\HC138.lst) TABS (2) OBJECT(..\HC138.obj)

@@ -1,0 +1,66 @@
+C51 COMPILER V9.60.0.0   HC138                                                             04/05/2023 22:29:12 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE HC138
+OBJECT MODULE PLACED IN ..\HC138.obj
+COMPILER INVOKED BY: D:\software\keil\C51\BIN\C51.EXE ..\sourse\HC138.c OPTIMIZE(8,SPEED) BROWSE INCDIR(..\sourse) DEBUG
+                    - OBJECTEXTEND PRINT(.\Listings\HC138.lst) TABS(2) OBJECT(..\HC138.obj)
+
+line level    source
+
+   1          #include "head.h"
+   2          
+   3          
+   4          
+   5          void HC138(unsigned char n)
+   6          {
+   7   1        switch(n)
+   8   1        {
+   9   2          case 4:
+  10   2            P2 = (P2 & 0x1f) | 0x80;
+  11   2          break;
+  12   2          
+  13   2          case 5:
+  14   2            P2 = (P2 & 0x1f) | 0xa0;
+  15   2          break;
+  16   2              
+  17   2          case 6:
+  18   2            P2 = (P2 & 0x1f) | 0xc0;
+  19   2          break;
+  20   2                  
+  21   2          case 7:
+  22   2            P2 = (P2 & 0x1f) | 0xe0;
+  23   2          break;
+  24   2                      
+  25   2          case 0:
+  26   2            P2 = (P2 & 0x1f) | 0x00;
+  27   2          break;
+  28   2        }
+  29   1      }
+  30          
+  31          
+  32          void SMG_config(unsigned char adr,unsigned dat)
+  33          {
+  34   1        P0 = 0xff;
+  35   1        HC138(6);
+  36   1        P0 = adr;
+  37   1        
+  38   1        Delay_OneWire(1);
+  39   1        HC138(7);
+  40   1        P0 = dat;
+  41   1      }
+  42          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     89    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

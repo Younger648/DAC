@@ -1,0 +1,17 @@
+"..\main.obj",
+"..\head.obj",
+"..\onewire.obj",
+"..\ds1302.obj",
+"..\iic.obj",
+"..\ds18b20.obj",
+"..\timer.obj",
+"..\HC138.obj",
+"..\SMG.obj",
+"..\ds1302config.obj",
+"..\key.obj",
+"..\menu.obj",
+"..\led.obj",
+"..\jidianqi.obj",
+"..\DAC_config.obj" 
+TO "..\ds1302" 
+PRINT(".\Listings\ds1302.m51") RAMSIZE(256) 

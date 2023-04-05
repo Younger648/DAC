@@ -1,0 +1,59 @@
+C51 COMPILER V9.60.0.0   KEY                                                               04/05/2023 22:29:13 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE KEY
+OBJECT MODULE PLACED IN ..\key.obj
+COMPILER INVOKED BY: D:\software\keil\C51\BIN\C51.EXE ..\sourse\key.c OPTIMIZE(8,SPEED) BROWSE INCDIR(..\sourse) DEBUG O
+                    -BJECTEXTEND PRINT(.\Listings\key.lst) TABS(2) OBJECT(..\key.obj)
+
+line level    source
+
+   1          #include "head.h"
+   2          
+   3          
+   4          void key(unsigned char n)
+   5          {
+   6   1        switch(n)
+   7   1        {
+   8   2          case 1:
+   9   2            R1 = 0;
+  10   2            R2 = R3 = R4 = 1;
+  11   2            C1 = C2 = C3 = C4 = 1;
+  12   2          break;
+  13   2        
+  14   2          case 2:
+  15   2            R2 = 0;
+  16   2            R1 = R3 = R4 = 1;
+  17   2            C1 = C2 = C3 = C4 = 1;
+  18   2          break;
+  19   2        
+  20   2          case 3:
+  21   2            R3 = 0;
+  22   2            R1 = R2 = R4 = 1;
+  23   2            C1 = C2 = C3 = C4 = 1;
+  24   2          break;
+  25   2        
+  26   2          case 4:
+  27   2            R4 = 0;
+  28   2            R1 = R2 = R3 = 1;
+  29   2            C1 = C2 = C3 = C4 = 1;
+  30   2          break;          
+  31   2        }
+  32   1      
+  33   1      }
+  34          
+  35          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     62    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

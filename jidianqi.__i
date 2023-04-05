@@ -1,0 +1,1 @@
+"..\sourse\jidianqi.c" OPTIMIZE (8,SPEED) BROWSE INCDIR(..\sourse) DEBUG OBJECTEXTEND PRINT(.\Listings\jidianqi.lst) TABS (2) OBJECT(..\jidianqi.obj)

@@ -1,0 +1,1 @@
+"..\sourse\ds1302config.c" OPTIMIZE (8,SPEED) BROWSE INCDIR(..\sourse) DEBUG OBJECTEXTEND PRINT(.\Listings\ds1302config.lst) TABS (2) OBJECT(..\ds1302config.obj)
