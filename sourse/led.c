@@ -16,8 +16,6 @@ void LED_config(unsigned char led_adr,unsigned char led_dat)
 	}
 	
 	P0 = P0_DAT;
-	
-	
 }
 
 

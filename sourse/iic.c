@@ -6,7 +6,11 @@
 static void I2C_Delay(unsigned char n)
 {
     do
-    {_nop_();}
+    {
+        _nop_();_nop_();_nop_();_nop_();_nop_();
+        _nop_();_nop_();_nop_();_nop_();_nop_();
+        _nop_();_nop_();_nop_();_nop_();_nop_();		
+    }
     while(n--);      	
 }
 

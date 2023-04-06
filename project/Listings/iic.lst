@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   IIC                                                               04/05/2023 22:29:12 PAGE 1   
+C51 COMPILER V9.60.0.0   IIC                                                               04/06/2023 17:03:48 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE IIC
@@ -16,104 +16,108 @@ line level    source
    6          static void I2C_Delay(unsigned char n)
    7          {
    8   1          do
-   9   1          {_nop_();}
-  10   1          while(n--);       
-  11   1      }
-  12          
-  13          //
-  14          void I2CStart(void)
-  15          {
-  16   1          SDA = 1;
-  17   1          scl = 1;
-  18   1        I2C_Delay(DELAY_TIME);
-  19   1          SDA = 0;
-  20   1        I2C_Delay(DELAY_TIME);
-  21   1          scl = 0;    
-  22   1      }
-  23          
-  24          //
-  25          void I2CStop(void)
-  26          {
-  27   1          SDA = 0;
-  28   1          scl = 1;
-  29   1        I2C_Delay(DELAY_TIME);
-  30   1          SDA = 1;
-  31   1        I2C_Delay(DELAY_TIME);
-  32   1      }
-  33          
-  34          //
-  35          void I2CSendByte(unsigned char byt)
-  36          {
-  37   1          unsigned char i;
-  38   1        
-  39   1          for(i=0; i<8; i++){
-  40   2              scl = 0;
-  41   2          I2C_Delay(DELAY_TIME);
-  42   2              if(byt & 0x80){
-  43   3                  SDA = 1;
-  44   3              }
-  45   2              else{
-  46   3                  SDA = 0;
-  47   3              }
-  48   2          I2C_Delay(DELAY_TIME);
-  49   2              scl = 1;
-  50   2              byt <<= 1;
-  51   2          I2C_Delay(DELAY_TIME);
-  52   2          }
-  53   1        
-  54   1          scl = 0;  
-C51 COMPILER V9.60.0.0   IIC                                                               04/05/2023 22:29:12 PAGE 2   
+   9   1          {
+  10   2              _nop_();_nop_();_nop_();_nop_();_nop_();
+  11   2              _nop_();_nop_();_nop_();_nop_();_nop_();
+  12   2              _nop_();_nop_();_nop_();_nop_();_nop_();    
+  13   2          }
+  14   1          while(n--);       
+  15   1      }
+  16          
+  17          //
+  18          void I2CStart(void)
+  19          {
+  20   1          SDA = 1;
+  21   1          scl = 1;
+  22   1        I2C_Delay(DELAY_TIME);
+  23   1          SDA = 0;
+  24   1        I2C_Delay(DELAY_TIME);
+  25   1          scl = 0;    
+  26   1      }
+  27          
+  28          //
+  29          void I2CStop(void)
+  30          {
+  31   1          SDA = 0;
+  32   1          scl = 1;
+  33   1        I2C_Delay(DELAY_TIME);
+  34   1          SDA = 1;
+  35   1        I2C_Delay(DELAY_TIME);
+  36   1      }
+  37          
+  38          //
+  39          void I2CSendByte(unsigned char byt)
+  40          {
+  41   1          unsigned char i;
+  42   1        
+  43   1          for(i=0; i<8; i++){
+  44   2              scl = 0;
+  45   2          I2C_Delay(DELAY_TIME);
+  46   2              if(byt & 0x80){
+  47   3                  SDA = 1;
+  48   3              }
+  49   2              else{
+  50   3                  SDA = 0;
+  51   3              }
+  52   2          I2C_Delay(DELAY_TIME);
+  53   2              scl = 1;
+  54   2              byt <<= 1;
+C51 COMPILER V9.60.0.0   IIC                                                               04/06/2023 17:03:48 PAGE 2   
 
-  55   1      }
-  56          
-  57          //
-  58          unsigned char I2CReceiveByte(void)
-  59          {
-  60   1        unsigned char da;
-  61   1        unsigned char i;
-  62   1        for(i=0;i<8;i++){   
-  63   2          scl = 1;
-  64   2          I2C_Delay(DELAY_TIME);
-  65   2          da <<= 1;
-  66   2          if(SDA) 
-  67   2            da |= 0x01;
-  68   2          scl = 0;
-  69   2          I2C_Delay(DELAY_TIME);
-  70   2        }
-  71   1        return da;    
-  72   1      }
-  73          
-  74          //
-  75          unsigned char I2CWaitAck(void)
-  76          {
-  77   1        unsigned char ackbit;
-  78   1        
-  79   1          scl = 1;
-  80   1        I2C_Delay(DELAY_TIME);
-  81   1          ackbit = SDA; 
-  82   1          scl = 0;
-  83   1        I2C_Delay(DELAY_TIME);
-  84   1        
-  85   1        return ackbit;
-  86   1      }
-  87          
-  88          //
-  89          void I2CSendAck(unsigned char ackbit)
-  90          {
-  91   1          scl = 0;
-  92   1          SDA = ackbit; 
-  93   1        I2C_Delay(DELAY_TIME);
-  94   1          scl = 1;
-  95   1        I2C_Delay(DELAY_TIME);
-  96   1          scl = 0; 
-  97   1        SDA = 1;
-  98   1        I2C_Delay(DELAY_TIME);
-  99   1      }
- 100          
+  55   2          I2C_Delay(DELAY_TIME);
+  56   2          }
+  57   1        
+  58   1          scl = 0;  
+  59   1      }
+  60          
+  61          //
+  62          unsigned char I2CReceiveByte(void)
+  63          {
+  64   1        unsigned char da;
+  65   1        unsigned char i;
+  66   1        for(i=0;i<8;i++){   
+  67   2          scl = 1;
+  68   2          I2C_Delay(DELAY_TIME);
+  69   2          da <<= 1;
+  70   2          if(SDA) 
+  71   2            da |= 0x01;
+  72   2          scl = 0;
+  73   2          I2C_Delay(DELAY_TIME);
+  74   2        }
+  75   1        return da;    
+  76   1      }
+  77          
+  78          //
+  79          unsigned char I2CWaitAck(void)
+  80          {
+  81   1        unsigned char ackbit;
+  82   1        
+  83   1          scl = 1;
+  84   1        I2C_Delay(DELAY_TIME);
+  85   1          ackbit = SDA; 
+  86   1          scl = 0;
+  87   1        I2C_Delay(DELAY_TIME);
+  88   1        
+  89   1        return ackbit;
+  90   1      }
+  91          
+  92          //
+  93          void I2CSendAck(unsigned char ackbit)
+  94          {
+  95   1          scl = 0;
+  96   1          SDA = ackbit; 
+  97   1        I2C_Delay(DELAY_TIME);
+  98   1          scl = 1;
+  99   1        I2C_Delay(DELAY_TIME);
+ 100   1          scl = 0; 
+ 101   1        SDA = 1;
+ 102   1        I2C_Delay(DELAY_TIME);
+ 103   1      }
+ 104          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    172    ----
+   CODE SIZE        =    186    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

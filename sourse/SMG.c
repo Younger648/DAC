@@ -178,39 +178,36 @@ void refer_show()
 
 void ADC_show()
 {
-	static unsigned char i;
-	unsigned int adc_light;
+	unsigned char adrr,datt;
 	
-	adc_light = read_8951();
-	
-	
+	static char i;
 	i ++;
 	if(i == 5)
 	i = 1;
-	
 	switch(i)
 	{
 		case 1:
-			adr = 4;
-		  dat = adc_light / 0x1000;
+			adrr = 5;
+			datt = adc_volt / 100;
 		break;
-
+		
 		case 2:
-			adr = 5;
-		  dat = adc_light / 0x100 % 0x10;
-		break;	
-
-		case 3:
-			adr = 6;
-		  dat = adc_light / 0x10 % 0x10;
+			adrr = 5;
+			datt = 17;
 		break;
-
+				
+		case 3:
+			adrr = 6;
+			datt = adc_volt/ 10 % 10;
+		break;
+						
 		case 4:
-			adr = 7;
-		  dat = adc_light % 0x10;
-		break;		
+			adrr = 7;
+			datt = adc_volt % 10;
+		break;
+	
 	}
-	SMG_config(SMG_adr[adr],Seg_Table[dat]);
+	SMG_config(SMG_adr[adrr],Seg_Table[datt]);
 
 }
 
@@ -233,12 +230,11 @@ void ADC_show()
 
 //void kk()
 //{
-//	unsigned int adc_light;
-//	adc_light = read_8951();
-//	SMG_config(SMG_adr[0],Seg_Table[adc_light / 0x1000]);
+
+//	SMG_config(SMG_adr[0],Seg_Table[18]);
 //	Delay1ms();
 //	
-//	SMG_config(SMG_adr[1],Seg_Table[adc_light / 0x100 % 0x10]);
+//	SMG_config(SMG_adr[1],Seg_Table[18]);
 //	Delay1ms();
 //	
 //	SMG_config(SMG_adr[2],Seg_Table[18]);
@@ -250,13 +246,16 @@ void ADC_show()
 //	SMG_config(SMG_adr[4],Seg_Table[18]);
 //	Delay1ms();
 //	
-//	SMG_config(SMG_adr[5],Seg_Table[18]);
+//	SMG_config(SMG_adr[5],Seg_Table[dat_ADC / 100 % 10]);
 //	Delay1ms();
 //	
-//	SMG_config(SMG_adr[6],Seg_Table[adc_light / 0x10 % 10]);
+//	SMG_config(SMG_adr[5],Seg_Table[17]);
 //	Delay1ms();
 //	
-//	SMG_config(SMG_adr[7],Seg_Table[adc_light % 0x10]);
+//	SMG_config(SMG_adr[6],Seg_Table[dat_ADC / 10 % 10]);
+//	Delay1ms();
+//	
+//	SMG_config(SMG_adr[7],Seg_Table[dat_ADC % 10]);
 //	Delay1ms();
 
 
